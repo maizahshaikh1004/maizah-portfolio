@@ -22,7 +22,7 @@ function Hero() {
           </div>
 
           <p className="mb-4 text-lg text-gray-400">
-            ASSALAMUALAIKUM 👋
+            Hey, I'm Maizah 👋
           </p>
 
           <h1 className="mb-4 text-5xl font-bold leading-tight md:text-7xl">
@@ -35,6 +35,18 @@ function Hero() {
           <h2 className="mb-6 text-xl text-gray-300 md:text-2xl">
             Python Developer • Django Developer • Full Stack Developer
           </h2>
+          <div className="flex items-center gap-4 my-8">
+  <div className="h-[1px] w-16 bg-purple-500"></div>
+
+  <div className="h-[1px] w-16 bg-blue-500"></div>
+  <div className="h-[1px] w-16 bg-purple-500"></div>
+  <div className="h-[1px] w-16 bg-blue-500"></div>
+  <div className="h-[1px] w-16 bg-purple-500"></div>
+  <div className="h-[1px] w-16 bg-blue-500"></div>
+</div>
+
+
+
 
           <p className="mb-10 max-w-xl text-lg leading-relaxed text-gray-400">
             Building academic workflow platforms, backend systems,
@@ -64,7 +76,7 @@ function Hero() {
             <img
               src={myImg}
               alt="Maizah Shaikh"
-              className="relative z-10 h-[500px] w-[500px] rounded-full object-cover border border-white/10"
+              className="relative z-10 h-[480px] w-[480px] rounded-full object-cover border border-white/10"
             />
 
           </div>
