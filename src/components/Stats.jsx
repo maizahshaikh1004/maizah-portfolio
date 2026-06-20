@@ -29,7 +29,7 @@ function Stats() {
   ];
 
   return (
-    <section className="bg-[#050816] px-6 py-20">
+    <section id="stats" className="bg-[#050816] px-6 py-20">
       <div className="mx-auto max-w-7xl">
 
         <h2 className="mb-12 text-center text-4xl font-bold text-white">
@@ -44,7 +44,7 @@ function Stats() {
               className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-lg transition duration-300 hover:-translate-y-2"
             >
               <div
-                className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-r ${item.color} text-2xl text-white`}
+                className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-r ${item.color} text-2xl text-white`}
               >
                 {item.icon}
               </div>

@@ -2,7 +2,7 @@ import myImg from "../assets/images/maizah.png";
 
 function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
+    <section id="hero-section" className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
       
       {/* Background Blobs */}
       <div className="absolute top-20 left-10 h-72 w-72 rounded-full bg-purple-600/30 blur-[120px]" />
@@ -27,7 +27,7 @@ function Hero() {
 
           <h1 className="mb-4 text-5xl font-bold leading-tight md:text-7xl">
             Maizah <br />
-            <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
               Shaikh
             </span>
           </h1>
@@ -36,13 +36,13 @@ function Hero() {
             Python Developer • Django Developer • Full Stack Developer
           </h2>
           <div className="flex items-center gap-4 my-8">
-  <div className="h-[1px] w-16 bg-purple-500"></div>
+  <div className="h-px w-16 bg-purple-500"></div>
 
-  <div className="h-[1px] w-16 bg-blue-500"></div>
-  <div className="h-[1px] w-16 bg-purple-500"></div>
-  <div className="h-[1px] w-16 bg-blue-500"></div>
-  <div className="h-[1px] w-16 bg-purple-500"></div>
-  <div className="h-[1px] w-16 bg-blue-500"></div>
+  <div className="h-px w-16 bg-blue-500"></div>
+  <div className="h-px w-16 bg-purple-500"></div>
+  <div className="h-px w-16 bg-blue-500"></div>
+  <div className="h-px w-16 bg-purple-500"></div>
+  <div className="h-px w-16 bg-blue-500"></div>
 </div>
 
 
@@ -55,7 +55,7 @@ function Hero() {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button className="rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 font-semibold transition hover:scale-105">
+            <button className="rounded-xl bg-linear-to-r from-purple-500 to-blue-500 px-6 py-3 font-semibold transition hover:scale-105">
               View Projects
             </button>
 
@@ -71,12 +71,12 @@ function Hero() {
 
           <div className="relative">
 
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 blur-3xl opacity-40" />
+            <div className="absolute inset-0 rounded-full bg-linear-to-r from-purple-500 via-blue-500 to-green-500 blur-3xl opacity-40" />
 
             <img
               src={myImg}
               alt="Maizah Shaikh"
-              className="relative z-10 h-[480px] w-[480px] rounded-full object-cover border border-white/10"
+              className="relative z-10 h-120 w-120 rounded-full object-cover border border-white/10"
             />
 
           </div>

@@ -31,7 +31,7 @@ function Projects() {
   ];
 
   return (
-    <section className="bg-[#050816] px-6 py-24">
+    <section id="projects" className="bg-[#050816] px-6 py-24">
       <div className="mx-auto max-w-7xl">
 
         <h2 className="mb-4 text-center text-5xl font-bold text-white">
@@ -70,7 +70,7 @@ function Projects() {
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className={`rounded-full bg-gradient-to-r ${project.gradient} px-3 py-1 text-sm text-white`}
+                      className={`rounded-full bg-linear-to-r ${project.gradient} px-3 py-1 text-sm text-white`}
                     >
                       {tech}
                     </span>

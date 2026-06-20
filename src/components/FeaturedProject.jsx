@@ -2,7 +2,7 @@ import dashboardImg from "../assets/images/campusone.png";
 
 function FeaturedProject() {
   return (
-    <section className="bg-[#050816] px-6 py-24">
+    <section id="featuredProject" className="bg-[#050816] px-6 py-24">
       <div className="mx-auto max-w-7xl">
 
         <div className="mb-12">
@@ -60,7 +60,7 @@ function FeaturedProject() {
 
             </div>
 
-            <button className="mt-10 rounded-xl bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-3 font-semibold text-white transition hover:scale-105">
+            <button className="mt-10 rounded-xl bg-linear-to-r from-purple-500 to-blue-500 px-6 py-3 font-semibold text-white transition hover:scale-105">
               View Project Details
             </button>
 
@@ -69,7 +69,7 @@ function FeaturedProject() {
           {/* Right Side */}
           <div className="relative">
 
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500/20 via-blue-500/20 to-green-500/20 blur-3xl"></div>
+            <div className="absolute inset-0 rounded-3xl bg-linear-to-r from-purple-500/20 via-blue-500/20 to-green-500/20 blur-3xl"></div>
 
             <img
               src={dashboardImg}
