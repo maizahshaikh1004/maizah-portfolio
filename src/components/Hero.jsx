@@ -74,6 +74,7 @@ function Hero() {
 
             <a
               href="/Maizah_Resume.pdf"
+              download="Maizah_Shaikh_Resume.pdf"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-8 py-4 text-base font-bold text-white hover:border-white hover:scale-105 active:scale-95 transition duration-300 bg-transparent"

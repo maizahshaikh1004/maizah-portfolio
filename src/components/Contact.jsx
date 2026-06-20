@@ -86,6 +86,7 @@ function Contact() {
             <motion.a
               key={index}
               href={item.link}
+              download={item.title === "Resume" ? "Maizah_Shaikh_Resume.pdf" : undefined}
               target={item.title === "Email" ? undefined : "_blank"}
               rel="noreferrer"
               onClick={() => handleCardClick(item)}
