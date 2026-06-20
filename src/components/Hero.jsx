@@ -1,87 +1,120 @@
+import { motion } from "framer-motion";
+import { portfolioData } from "../data/portfolioData";
 import myImg from "../assets/images/maizah.png";
 
 function Hero() {
+  const { name, titles, summary, openToOpportunities } = portfolioData.personalInfo;
+
   return (
-    <section id="hero-section" className="relative min-h-screen overflow-hidden bg-[#050816] text-white">
-      
-      {/* Background Blobs */}
-      <div className="absolute top-20 left-10 h-72 w-72 rounded-full bg-purple-600/30 blur-[120px]" />
-      <div className="absolute top-40 right-20 h-72 w-72 rounded-full bg-blue-600/30 blur-[120px]" />
-      <div className="absolute bottom-10 left-1/3 h-72 w-72 rounded-full bg-green-500/20 blur-[120px]" />
+    <section
+      id="hero-section"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#121212] via-[#0b0b0b] to-[#121212] pt-24 pb-12 px-6 lg:px-12"
+    >
+      {/* Background Neon Green Glows */}
+      <div className="absolute top-1/4 left-1/10 h-96 w-96 rounded-full bg-spotify-green/10 blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/10 h-96 w-96 rounded-full bg-spotify-green/5 blur-[150px] pointer-events-none" />
 
       {/* Main Container */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 lg:px-12">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col-reverse items-center justify-between gap-12 lg:flex-row">
+        
+        {/* Left Content (Artist/Developer Details) */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex-1 text-center lg:text-left"
+        >
+          {/* Badge: Open to Opportunities (Styled as Spotify Verified Artist Badge) */}
+          {openToOpportunities && (
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="mb-6 inline-flex items-center gap-2 rounded-full border border-spotify-green/20 bg-spotify-green/10 px-4 py-1.5 backdrop-blur-md"
+            >
+              {/* Verified Green Icon */}
+              <svg className="h-4 w-4 text-spotify-green fill-current" viewBox="0 0 24 24">
+                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+              </svg>
+              <span className="text-xs font-bold tracking-wider text-spotify-green uppercase">
+                Verified Python Developer
+              </span>
+            </motion.div>
+          )}
 
-        {/* Left Content */}
-        <div className="flex-1">
-
-          <div className="mb-6 inline-flex rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-md">
-            <span className="text-sm text-green-400">
-              ● Open to Opportunities
-            </span>
-          </div>
-
-          <p className="mb-4 text-lg text-gray-400">
-            Hey, I'm Maizah 👋
+          <p className="mb-2 text-sm font-semibold tracking-wider text-spotify-muted uppercase font-display">
+            Artist Spotlight
           </p>
 
-          <h1 className="mb-4 text-5xl font-bold leading-tight md:text-7xl">
-            Maizah <br />
-            <span className="bg-linear-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
-              Shaikh
-            </span>
+          <h1 className="mb-4 text-5xl font-extrabold tracking-tight text-white md:text-7xl lg:text-8xl font-display leading-none">
+            {name}
           </h1>
 
-          <h2 className="mb-6 text-xl text-gray-300 md:text-2xl">
-            Python Developer • Django Developer • Full Stack Developer
-          </h2>
-          <div className="flex items-center gap-4 my-8">
-  <div className="h-px w-16 bg-purple-500"></div>
+          {/* Titles / Genres */}
+          <div className="mb-6 flex flex-wrap justify-center lg:justify-start items-center gap-2 text-sm text-spotify-muted">
+            <span className="text-white font-medium">{titles.join("  •  ")}</span>
+          </div>
 
-  <div className="h-px w-16 bg-blue-500"></div>
-  <div className="h-px w-16 bg-purple-500"></div>
-  <div className="h-px w-16 bg-blue-500"></div>
-  <div className="h-px w-16 bg-purple-500"></div>
-  <div className="h-px w-16 bg-blue-500"></div>
-</div>
-
-
-
-
-          <p className="mb-10 max-w-xl text-lg leading-relaxed text-gray-400">
-            Building academic workflow platforms, backend systems,
-            and scalable web applications that solve real-world
-            problems through clean architecture and thoughtful design.
+          <p className="mb-10 max-w-xl text-lg leading-relaxed text-spotify-muted">
+            {summary}
           </p>
 
-          <div className="flex flex-wrap gap-4">
-            <button className="rounded-xl bg-linear-to-r from-purple-500 to-blue-500 px-6 py-3 font-semibold transition hover:scale-105">
+          {/* Controls (Play/Follow buttons) */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-spotify-green px-8 py-4 text-base font-bold text-black hover:scale-105 active:scale-95 transition duration-300 shadow-lg shadow-spotify-green/25"
+            >
+              {/* Play Icon */}
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
               View Projects
-            </button>
+            </a>
 
-            <button className="rounded-xl border border-white/20 px-6 py-3 font-semibold transition hover:bg-white/10">
-              Download Resume
-            </button>
+            <a
+              href="/Maizah_Resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-8 py-4 text-base font-bold text-white hover:border-white hover:scale-105 active:scale-95 transition duration-300 bg-transparent"
+            >
+              {/* Download Icon */}
+              <svg className="h-5 w-5 fill-none stroke-current" strokeWidth="2" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Get Resume
+            </a>
           </div>
+        </motion.div>
 
-        </div>
+        {/* Right Content (Album/Artist Image cover) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex-1 flex justify-center items-center relative"
+        >
+          {/* Card shadow backplate */}
+          <div className="absolute h-80 w-80 rounded-3xl bg-gradient-to-tr from-spotify-green to-transparent opacity-20 blur-2xl" />
 
-        {/* Right Content */}
-        <div className="hidden flex-1 items-center justify-center lg:flex">
-
-          <div className="relative">
-
-            <div className="absolute inset-0 rounded-full bg-linear-to-r from-purple-500 via-blue-500 to-green-500 blur-3xl opacity-40" />
-
+          {/* Spotify style vinyl/cover artwork frame */}
+          <div className="relative group p-3 bg-[#181818] rounded-3xl border border-white/5 shadow-2xl transition duration-500 hover:rotate-2 hover:scale-[1.02]">
             <img
               src={myImg}
-              alt="Maizah Shaikh"
-              className="relative z-10 h-120 w-120 rounded-full object-cover border border-white/10"
+              alt={name}
+              className="h-80 w-80 md:h-[400px] md:w-[400px] rounded-2xl object-cover grayscale transition duration-500 group-hover:grayscale-0 shadow-lg"
             />
-
+            {/* Visual audio overlay on hover */}
+            <div className="absolute inset-0 bg-black/40 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
+              <div className="flex gap-1.5 items-end h-8">
+                <div className="w-1.5 bg-spotify-green rounded-full animate-bounce h-full" style={{ animationDelay: '0.1s', animationDuration: '0.6s' }} />
+                <div className="w-1.5 bg-spotify-green rounded-full animate-bounce h-2/3" style={{ animationDelay: '0.3s', animationDuration: '0.4s' }} />
+                <div className="w-1.5 bg-spotify-green rounded-full animate-bounce h-4/5" style={{ animationDelay: '0.5s', animationDuration: '0.5s' }} />
+                <div className="w-1.5 bg-spotify-green rounded-full animate-bounce h-1/2" style={{ animationDelay: '0.2s', animationDuration: '0.7s' }} />
+              </div>
+            </div>
           </div>
-
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -1,65 +1,70 @@
+import { motion } from "framer-motion";
 import { FaCode, FaTrophy, FaGraduationCap, FaBook } from "react-icons/fa";
+import { portfolioData } from "../data/portfolioData";
 
 function Stats() {
-  const stats = [
-    {
-      icon: <FaGraduationCap />,
-      value: "8.80",
-      label: "CGPA",
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      icon: <FaCode />,
-      value: "3+",
-      label: "Major Projects",
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      icon: <FaTrophy />,
-      value: "5+",
-      label: "Achievements",
-      color: "from-orange-500 to-yellow-500",
-    },
-    {
-      icon: <FaBook />,
-      value: "1",
-      label: "Research Paper",
-      color: "from-green-500 to-emerald-500",
-    },
-  ];
+  const iconMap = {
+    "CGPA": <FaGraduationCap />,
+    "Major Projects": <FaCode />,
+    "Achievements": <FaTrophy />,
+    "Research Paper": <FaBook />,
+  };
 
   return (
-    <section id="stats" className="bg-[#050816] px-6 py-20">
-      <div className="mx-auto max-w-7xl">
+    <section id="stats" className="relative bg-[#0b0b0b] px-6 py-20">
+      <div className="mx-auto max-w-7xl relative z-10">
+        
+        {/* Section Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 text-center"
+        >
+          <h2 className="text-3xl font-extrabold tracking-tight text-white font-display md:text-4xl">
+            Highlights at a Glance
+          </h2>
+        </motion.div>
 
-        <h2 className="mb-12 text-center text-4xl font-bold text-white">
-          Highlights
-        </h2>
-
+        {/* Stats Grid */}
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-
-          {stats.map((item, index) => (
-            <div
+          {portfolioData.stats.map((item, index) => (
+            <motion.div
               key={index}
-              className="group rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-lg transition duration-300 hover:-translate-y-2"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ scale: 1.03 }}
+              className="group relative rounded-3xl bg-[#181818] p-8 border border-white/5 shadow-xl transition-all duration-300 hover:border-spotify-green/20"
             >
-              <div
-                className={`mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-r ${item.color} text-2xl text-white`}
-              >
-                {item.icon}
+              {/* Green Accent Shadow Overlay */}
+              <div className="absolute inset-0 rounded-3xl bg-spotify-green/0 opacity-0 group-hover:bg-spotify-green/[0.02] group-hover:opacity-100 transition-all duration-500 pointer-events-none" />
+
+              {/* Icon Container */}
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#282828] text-2xl text-spotify-muted group-hover:bg-spotify-green group-hover:text-black transition-all duration-300">
+                {iconMap[item.label] || <FaCode />}
               </div>
 
-              <h3 className="mb-2 text-5xl font-bold text-white">
+              {/* Value */}
+              <h3 className="mb-2 text-5xl font-black tracking-tight text-white font-display">
                 {item.value}
               </h3>
 
-              <p className="text-gray-400">
+              {/* Label */}
+              <h4 className="text-lg font-bold text-white font-display">
                 {item.label}
-              </p>
-            </div>
-          ))}
+              </h4>
 
+              {/* Description */}
+              <p className="mt-1 text-sm text-spotify-muted">
+                {item.detail}
+              </p>
+            </motion.div>
+          ))}
         </div>
+
       </div>
     </section>
   );
